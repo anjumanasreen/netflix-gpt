@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import {USER_AVATAR} from "../utils/constants"
+import {USER_AVATAR ,BG_URL} from "../utils/constants"
 
 
 const Login = () => {
@@ -82,10 +82,10 @@ const Login = () => {
         <div>
             <Header />
             <div className="absolute">
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/7fb62e44-31fd-4e1f-b6ad-0b5c8c2a20ef/IN-en-20231009-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="background-img" />    
+                <img className="object-cover h-screen w-screen" src={BG_URL} alt="background-img" />    
             </div>
 
-            <form className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 bg-opacity-80 text-white" onSubmit={(e) => e.preventDefault()}>
+            <form className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80" onSubmit={(e) => e.preventDefault()}>
                 <h1 className="font-bold text-3xl p-2 mb-6">{isSignIn ? "Sign In" : "SignUp"}</h1>
 
                 {!isSignIn && <input ref={name} type="text" placeholder="Full Name" className="p-4 my-2 w-full bg-gray-700 rounded"/>}
